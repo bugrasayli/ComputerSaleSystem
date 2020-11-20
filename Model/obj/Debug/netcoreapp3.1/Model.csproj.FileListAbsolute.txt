@@ -1,0 +1,9 @@
+C:\Users\bugra\Dropbox\My PC (DESKTOP-4B177VT)\Desktop\Project\ComputerAPI\Model\bin\Debug\netcoreapp3.1\Model.deps.json
+C:\Users\bugra\Dropbox\My PC (DESKTOP-4B177VT)\Desktop\Project\ComputerAPI\Model\bin\Debug\netcoreapp3.1\Model.dll
+C:\Users\bugra\Dropbox\My PC (DESKTOP-4B177VT)\Desktop\Project\ComputerAPI\Model\bin\Debug\netcoreapp3.1\Model.pdb
+C:\Users\bugra\Dropbox\My PC (DESKTOP-4B177VT)\Desktop\Project\ComputerAPI\Model\obj\Debug\netcoreapp3.1\Model.csprojAssemblyReference.cache
+C:\Users\bugra\Dropbox\My PC (DESKTOP-4B177VT)\Desktop\Project\ComputerAPI\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfoInputs.cache
+C:\Users\bugra\Dropbox\My PC (DESKTOP-4B177VT)\Desktop\Project\ComputerAPI\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfo.cs
+C:\Users\bugra\Dropbox\My PC (DESKTOP-4B177VT)\Desktop\Project\ComputerAPI\Model\obj\Debug\netcoreapp3.1\Model.csproj.CoreCompileInputs.cache
+C:\Users\bugra\Dropbox\My PC (DESKTOP-4B177VT)\Desktop\Project\ComputerAPI\Model\obj\Debug\netcoreapp3.1\Model.dll
+C:\Users\bugra\Dropbox\My PC (DESKTOP-4B177VT)\Desktop\Project\ComputerAPI\Model\obj\Debug\netcoreapp3.1\Model.pdb
