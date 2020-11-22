@@ -20,9 +20,9 @@ namespace ComputerAPI.Controllers
         }
 
         [HttpGet]
-        public string Get()
+        public List<Model.Computer> Get()
         {
-            return "AMK";
+            return com.Computers();
         }
     }
 }

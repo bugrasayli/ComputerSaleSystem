@@ -25,6 +25,10 @@ namespace ComputerAPI
             services.AddScoped<IRam, MockRam>();
             services.AddScoped<IBrand, MockBrand>();
             services.AddScoped<ICountry, MockCountry>();
+            services.AddScoped<IType, MockType>();
+            services.AddScoped<IMemory, MockMemory>();
+            services.AddScoped<ICPU, MockCPU>();
+            services.AddScoped<IGraphicCard, MockGraphicCard>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
