@@ -8,6 +8,7 @@ namespace Model
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public virtual Detail Detail{ get; set; }
         public Brand Brand{ get; set; }
         public Country MadeIn { get; set; }
         public CPU Processor { get; set; }

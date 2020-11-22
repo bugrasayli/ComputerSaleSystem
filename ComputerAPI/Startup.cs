@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Repository;
 using Repository.Interfaces;
 using Repository.Repo;
 
@@ -29,6 +30,7 @@ namespace ComputerAPI
             services.AddScoped<IMemory, MockMemory>();
             services.AddScoped<ICPU, MockCPU>();
             services.AddScoped<IGraphicCard, MockGraphicCard>();
+            services.AddScoped<IDetail, MockDetail>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
