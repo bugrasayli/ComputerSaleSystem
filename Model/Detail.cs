@@ -7,9 +7,11 @@ namespace Model
     public class Detail 
     {
         public float price { get; set; }
-        public virtual Computer Computer { get; set; }
+        public virtual int ComputerID { get; set; }
+        public string MoreInfo { get; set; }
         public int Discount { get; set; }
         public int StockSize { get; set; }
+        public string Image { get; set; }
         public float LastPrice
         {
             get
@@ -18,7 +20,7 @@ namespace Model
             }
             set
             {
-
+                LastPrice = price - ((price * Discount) / 100);
             } 
         }
     }

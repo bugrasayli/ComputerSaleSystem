@@ -16,6 +16,8 @@ namespace Repository.Repo
             brands.Add(new Brand{ID=1,Name="Asus"});
             brands.Add(new Brand{ID=2,Name="Toshiba"});
             brands.Add(new Brand{ID=3,Name="Acer"});
+            brands.Add(new Brand{ID=4,Name="Mac"});
+            brands.Add(new Brand{ID=5,Name="Sony"});
             return brands;
         }
     }
