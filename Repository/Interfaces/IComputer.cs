@@ -8,6 +8,7 @@ namespace Repository.Interfaces
     public interface IComputer
     {
         public List<Computer> Computers();
+        public Computer Computer(int ID);
         public List<Computer> Computers(Model.Type type);
         public List<Computer> Computers(Brand brand);
         public List<Computer> Computers(CPU cpu);

@@ -16,6 +16,5 @@ namespace Model
         public Type Type { get; set; }
         public Memory Memory { get; set; }
         public RAM Ram{ get; set; }
-        public int MyProperty { get; set; }
     }
 }

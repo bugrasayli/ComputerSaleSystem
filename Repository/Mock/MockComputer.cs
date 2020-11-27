@@ -53,7 +53,7 @@ namespace Repository.Repo
                 Processor = processors[3],
                 Type = types[0],
                 Detail = new Detail
-                { price = 1999.90f, Discount = 0, StockSize = 12, ComputerID = 0,Image = 0 + ".jpg" }
+                { price = 1999.90f, Discount = 0, StockSize = 0, ComputerID = 0,Image = 0 + ".jpg" }
             });
             computers.Add(new Computer
             {

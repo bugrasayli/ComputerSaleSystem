@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +6,7 @@ namespace Model
 {
     public class Order
     {
-        public string OrderCode { get; set; }
+        public int ID { get; set; }
         public List<Computer> Computers { get; set; }
         public float Price
         {

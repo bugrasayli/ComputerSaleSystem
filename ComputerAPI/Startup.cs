@@ -4,8 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repository;
+using Repository.Database;
 using Repository.Interfaces;
 using Repository.Repo;
+using System.Data;
 
 namespace ComputerAPI
 {
@@ -23,15 +25,16 @@ namespace ComputerAPI
         {
             services.AddControllers();
             services.AddScoped<IComputer, MockComputer>();
-            services.AddScoped<IRam, MockRam>();
-            services.AddScoped<IBrand, MockBrand>();
-            services.AddScoped<ICountry, MockCountry>();
-            services.AddScoped<IType, MockType>();
-            services.AddScoped<IMemory, MockMemory>();
-            services.AddScoped<ICPU, MockCPU>();
-            services.AddScoped<IGraphicCard, MockGraphicCard>();
+            services.AddScoped<IRam, DBRam>();
+            services.AddScoped<IBrand, DBBrand>();
+            services.AddScoped<ICountry, DBCountry>();
+            services.AddScoped<IType, DBType>();
+            services.AddScoped<IMemory, DBMemory>();
+            services.AddScoped<ICPU, DBCPU>();
+            services.AddScoped<IGraphicCard, DBGraphic>();
             services.AddScoped<IDetail, MockDetail>();
-            services.AddScoped<IOrder,MockOrder>();
+            services.AddScoped<IOrder,DBOrder>();
+            services.AddScoped<IDB,SqlDB>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

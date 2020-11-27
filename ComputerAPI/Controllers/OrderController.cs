@@ -9,17 +9,19 @@ namespace ComputerAPI.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrder order;
+        IEnumerable<Order> orders= new List<Order>();
         public OrderController(IOrder _order)
         {
             order = _order;
         }
-
         [HttpGet]
         public IEnumerable<Order> Get()
         {
-            return order.GetOrder();
+            
+            orders = order.GetOrderByID(1);
+            return orders;
         }
-        
+
         [HttpGet("{id}")]
         public string Get(int id)
         {
@@ -28,8 +30,17 @@ namespace ComputerAPI.Controllers
 
         // POST api/<OrderController>
         [HttpPost]
-        public void Post([FromBody] Order value)
+        public IEnumerable<Order> Post([FromBody] Order value)
         {
+            if (value == null || value.Computers.Count == 0)
+            {
+                return order.GetOrder();
+            }
+            else
+            {
+                order.SetOrder(value);
+                return order.GetOrder();
+            }
         }
     }
 }

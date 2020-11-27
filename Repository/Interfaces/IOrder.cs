@@ -7,7 +7,8 @@ namespace Repository.Interfaces
 {
     public interface IOrder
     {
-        void SetOrder();
+        void SetOrder(Order order);
         IEnumerable<Order> GetOrder();
+        IEnumerable<Order> GetOrderByID(int ID);
     }
 }
