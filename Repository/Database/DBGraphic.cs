@@ -22,8 +22,11 @@ namespace Repository.Database
         {
             //DB = System.Configuration.ConfigurationManager.ConnectionStrings["myDB"].ConnectionString;
              con = this.db.getDB();
+            String a = "Select GraphicCard.ID,GraphicCard.Brand,GraphicCard.Name,Count(Computer.ID) " +
+                "from GraphicCard LEFT JOIN Computer on Computer.GraphicID = GraphicCard.ID " +
+                "group by GraphicCard.Brand,GraphicCard.Name,GraphicCard.ID";
 
-            SqlCommand cmd = new SqlCommand("Select * from GraphicCard", con);
+            SqlCommand cmd = new SqlCommand(a, con);
             con.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             List<GraphicCard> graphics = new List<GraphicCard>();
@@ -32,8 +35,9 @@ namespace Repository.Database
                 graphics.Add(new GraphicCard
                 {
                     ID = Convert.ToInt32(reader[0]),
-                    Name = reader[1].ToString() + " "+reader[2].ToString()
-                });
+                    Name = reader[1].ToString() + " " + reader[2].ToString(),
+                    Count = Convert.ToInt32(reader[3])
+                }) ;
             }
             con.Close();
             return graphics;

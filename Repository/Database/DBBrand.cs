@@ -19,11 +19,11 @@ namespace Repository.Database
         }
 
         public List<Model.Brand> Brands()
-        {
             //DB = System.Configuration.ConfigurationManager.ConnectionStrings["myDB"].ConnectionString;
+        {
              con = this.db.getDB();
-
-            SqlCommand cmd = new SqlCommand("Select * from Brand", con);
+            string a = "Select Brand.ID,Brand.Name,Count(Computer.ID) from Brand LEFT JOIN Computer on Computer.BrandID = Brand.ID group by Brand.Name,Brand.ID";
+            SqlCommand cmd = new SqlCommand(a, con);
             con.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             List<Brand> brands = new List<Brand>();
@@ -32,7 +32,8 @@ namespace Repository.Database
                 brands.Add(new Brand
                 {
                     ID = Convert.ToInt32(reader[0]),
-                    Name = reader[1].ToString()
+                    Name = reader[1].ToString(),
+                    Count= Convert.ToInt32(reader[2])
                 });
             }
             con.Close();

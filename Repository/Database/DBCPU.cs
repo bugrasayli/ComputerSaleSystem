@@ -21,8 +21,9 @@ namespace Repository.Database
         {
             //DB = System.Configuration.ConfigurationManager.ConnectionStrings["myDB"].ConnectionString;
              con = this.db.getDB();
-
-            SqlCommand cmd = new SqlCommand("Select * from CPU", con);
+            String a= "Select CPU.ID,CPU.Name,Count(Computer.ID) " +
+                "from CPU LEFT JOIN Computer on Computer.CPUID = CPU.ID group by CPU.Name,CPU.ID";
+            SqlCommand cmd = new SqlCommand(a, con);
             con.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             List<CPU> processors= new List<CPU>();
@@ -31,8 +32,9 @@ namespace Repository.Database
                 processors.Add(new CPU
                 {
                     ID = Convert.ToInt32(reader[0]),
-                    Name = reader[1].ToString()
-                });
+                    Name = reader[1].ToString(),
+                    Count = Convert.ToInt32(reader[2])
+                }) ;
             }
             con.Close();
             return processors;

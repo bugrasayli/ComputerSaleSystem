@@ -21,7 +21,8 @@ namespace Repository.Database
             //DB = System.Configuration.ConfigurationManager.ConnectionStrings["myDB"].ConnectionString;
              con = this.db.getDB();
 
-            SqlCommand cmd = new SqlCommand("Select * from Ram", con);
+            String a = "Select Ram.ID,Ram.Size,Count(Computer.ID) from Ram LEFT JOIN Computer on Computer.RamID = Ram.ID group by Ram.Size,Ram.ID";
+            SqlCommand cmd = new SqlCommand(a, con);
             con.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             List<RAM> rams = new List<RAM>();
@@ -30,8 +31,9 @@ namespace Repository.Database
                 rams.Add(new RAM
                 {
                     ID = Convert.ToInt32(reader[0]),
-                    Name = reader[1].ToString()
-                });
+                    Name = reader[1].ToString(),
+                    Count = Convert.ToInt32(reader[2])
+                }) ;
             }
             con.Close();
             return rams;

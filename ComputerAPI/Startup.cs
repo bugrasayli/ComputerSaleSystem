@@ -24,7 +24,7 @@ namespace ComputerAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IComputer, MockComputer>();
+            services.AddScoped<IComputer, DBComputer>();
             services.AddScoped<IRam, DBRam>();
             services.AddScoped<IBrand, DBBrand>();
             services.AddScoped<ICountry, DBCountry>();
@@ -35,6 +35,10 @@ namespace ComputerAPI
             services.AddScoped<IDetail, MockDetail>();
             services.AddScoped<IOrder,DBOrder>();
             services.AddScoped<IDB,SqlDB>();
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +50,7 @@ namespace ComputerAPI
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(options => options.AllowAnyOrigin());
 
             app.UseRouting();
 

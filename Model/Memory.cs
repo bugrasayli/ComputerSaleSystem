@@ -9,5 +9,6 @@ namespace Model
         public int ID { get; set; }
         public string HDD { get; set; }
         public string SSD { get; set; }
+        public int Count { get; set; }
     }
 }

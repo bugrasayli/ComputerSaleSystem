@@ -10,11 +10,11 @@ namespace Model
         public string Name { get; set; }
         public virtual Detail Detail{ get; set; }
         public Brand Brand{ get; set; }
-        public Country MadeIn { get; set; }
+        public Country Country { get; set; }
         public CPU Processor { get; set; }
         public GraphicCard GraphicCard{ get; set; }
         public Type Type { get; set; }
         public Memory Memory { get; set; }
         public RAM Ram{ get; set; }
-    }
+        }
 }

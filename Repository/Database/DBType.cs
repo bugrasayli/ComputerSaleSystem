@@ -22,14 +22,16 @@ namespace Repository.Database
             con = db.getDB();
             con.Open();
             types = new List<Model.Type>();
-            SqlCommand cmd = new SqlCommand("Select * from Type",con);
+            String a = "Select Type.ID,Type.Name,Count(Computer.ID) from Type LEFT JOIN Computer on Computer.TypeID = Type.ID group by Type.Name,Type.ID";
+            SqlCommand cmd = new SqlCommand(a,con);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 types.Add(new Model.Type
                 {
                     ID = Convert.ToInt32(reader[0]),
-                    Name = reader[1].ToString()
+                    Name = reader[1].ToString(),
+                    Count = Convert.ToInt32(reader[2])
                 }); ;
             }
             con.Close();

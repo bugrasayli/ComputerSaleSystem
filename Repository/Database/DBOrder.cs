@@ -13,7 +13,6 @@ namespace Repository.Database
         private readonly IDB db;
         List<Model.Order> orders;
         SqlConnection con;
-
         public DBOrder(IDB _db)
         {
             db = _db;
@@ -124,7 +123,6 @@ namespace Repository.Database
             con.Close();
             return orders;
         }
-
         public void SetOrder(Order order)
         {
             throw new NotImplementedException();
