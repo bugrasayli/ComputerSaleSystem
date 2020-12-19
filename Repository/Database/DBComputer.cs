@@ -27,7 +27,7 @@ namespace Repository.Database
             con.Open();
             string SqlString = "select Computer.ID,Computer.Name,Brand.ID,Brand.Name,GraphicCard.ID," +
                 "GraphicCard.Brand,GraphicCard.Name,CPU.ID, CPU.Name, Detail.Price, Detail.Discount, Detail.Stocksize," +
-                " Detail.Image, Detail.MoreInfo,Country.ID,Country.Name, Type.ID,Type.Name,Memory.ID,Memory.HDD,Memory.SSD,Ram.ID,Ram.Size from Computer INNER JOIN Brand on Computer.BrandID = Brand.ID inner " +
+                " Detail.Image, Detail.MoreInfo,Country.ID,Country.Name, Type.ID,Type.Name,Memory.ID,Memory.HDD,Memory.SSD,Ram.ID,Ram.Size, Detail.Sold from Computer INNER JOIN Brand on Computer.BrandID = Brand.ID inner " +
                 "JOIN GraphicCard on Computer.GraphicID = GraphicCard.ID inner JOIN CPU on Computer.CPUID = CPU.ID " +
                 "inner JOIN Detail on Computer.ID = Detail.ComputerID inner JOIN Country on Country.ID = Computer.CountryID inner join Type on Type.ID = Computer.TypeID inner join Memory on Computer.MemoryID=Memory.ID " +
                 "inner join Ram on Ram.ID = Computer.RamID ";
@@ -97,6 +97,8 @@ namespace Repository.Database
                 detail.Image = reader[12].ToString();
                 if (reader[13].ToString() != "")
                     detail.MoreInfo = reader[13].ToString();
+
+                detail.Sold = Convert.ToInt32(reader[23]);
 
                 computer.Detail = detail;
 

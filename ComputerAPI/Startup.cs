@@ -33,13 +33,20 @@ namespace ComputerAPI
             services.AddScoped<ICPU, DBCPU>();
             services.AddScoped<IGraphicCard, DBGraphic>();
             services.AddScoped<IDetail, MockDetail>();
-            services.AddScoped<IOrder,DBOrder>();
-            services.AddScoped<IDB,SqlDB>();
-            services.AddCors(c =>
+            services.AddScoped<IOrder, DBOrder>();
+            services.AddScoped<IDB, SqlDB>();
+
+            services.AddCors(options =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:4200/");
+                                  });
             });
         }
+
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -50,10 +57,8 @@ namespace ComputerAPI
             }
 
             app.UseHttpsRedirection();
-            app.UseCors(options => options.AllowAnyOrigin());
-
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

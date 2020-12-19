@@ -35,6 +35,7 @@ namespace Repository.Database
                     Name = reader[1].ToString(),
                     Count= Convert.ToInt32(reader[2])
                 });
+            
             }
             con.Close();
             return brands;

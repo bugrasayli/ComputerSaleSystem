@@ -12,6 +12,7 @@ namespace Model
         public int Discount { get; set; }
         public int StockSize { get; set; }
         public string Image { get; set; }
+        public int Sold { get; set; }
         public float LastPrice
         {
             get
